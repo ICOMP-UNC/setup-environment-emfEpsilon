@@ -1,7 +1,7 @@
 # Setting up the Development Environment for Operating Systems II
 
 ## 🎯Objective
-Establish a consistent and efficient working environment to serve as the foundation for subsequent labs in Operating Systems II. In this lab, students will configure GitHub Actions for Continuous Integration/Continuous Deployment (CI/CD), utilize [unity](https://www.throwtheswitch.org/unity) as a testing framework, and employ CMake to manage project construction.
+Establish a consistent and efficient working environment to serve as the foundation for subsequent labs in Operating Systems II. In this lab, students will configure GitHub Actions for Continuous Integration/Continuous Deployment (CI/CD), use  [unity](https://www.throwtheswitch.org/unity) as a testing framework, and employ CMake to manage project construction.
 
 ## 🔑 Steps to Follow
 
