@@ -9,11 +9,33 @@ project(
     LANGUAGES C
 )
 
+# Enable testing and add the tests
+include(CTest)
+
 # Defining C Standard
 set(CMAKE_C_STANDARD 17)
 
 # Including the 'include' directory
 include_directories(include)
+
+# To automatic download external deps
+include(FetchContent)
+
+# Url of Unity
+set(UNITY_GIT_URL "https://github.com/ThrowTheSwitch/Unity.git")
+
+# Enable Debug
+set(FETCHCONTENT_QUIET OFF)
+
+FetchContent_Declare(
+    Unity
+    GIT_REPOSITORY ${UNITY_GIT_URL}
+    SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/Unity
+    UPDATE_COMMAND ""
+)
+
+# Wait for fetch content
+FetchContent_MakeAvailable(Unity)
 
 # Setting the source code directory
 file(GLOB_RECURSE SOURCES "src/*.c")
@@ -31,3 +53,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC lib/mystatlib/include)
 
 # Specify libraries to use when linking a given target and/or its dependents. 
 target_link_libraries(${PROJECT_NAME} mydynlib mystatlib)
+
+if (RUN_TESTS EQUAL 1 OR RUN_COVERAGE EQUAL 1)
+    add_subdirectory(tests)
+endif()
