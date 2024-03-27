@@ -20,3 +20,14 @@ file(GLOB_RECURSE SOURCES "src/*.c")
 
 # Adding executable
 add_executable(${PROJECT_NAME} ${SOURCES})
+
+# Adding subdirectories to the build. 
+add_subdirectory(lib/mydynlib)
+add_subdirectory(lib/mystatlib)
+
+# Specifies include directories to use when compiling a given target (my target is the project).
+target_include_directories(${PROJECT_NAME} PUBLIC lib/mydynlib/include)
+target_include_directories(${PROJECT_NAME} PUBLIC lib/mystatlib/include)    
+
+# Specify libraries to use when linking a given target and/or its dependents. 
+target_link_libraries(${PROJECT_NAME} mydynlib mystatlib)
