@@ -53,5 +53,3 @@ int main (void )
     RUN_TEST(test_logic_devide);
     return  UNITY_END();
 }
-
-
